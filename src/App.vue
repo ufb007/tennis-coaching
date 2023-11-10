@@ -1,14 +1,17 @@
 <template>
   <!-- Menu Component for smaller screen size -->
-  <!-- Header Component -->
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <Header />
   <router-view/>
   <!-- Footer -->
 </template>
 
-<style>
+<script setup>
+  import Header from '@/components/header/Header';
+  import SvgIcon from 'vue3-icon';
+  import { provide } from 'vue';
 
+  provide('SvgIcon', SvgIcon)
+</script>
+
+<style>
 </style>

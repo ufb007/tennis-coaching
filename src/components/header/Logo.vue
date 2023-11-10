@@ -1,1 +1,5 @@
-//Just add logo here
+<template>
+    <div>
+        <img src="/images/logo.png" />
+    </div>
+</template>
