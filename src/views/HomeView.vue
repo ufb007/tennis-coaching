@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <!-- Weather Forecast Component -->
-    <!-- Slider Component (big image) -->
-    <!-- Welcome block Component -->
+    <Slider />
+    <Welcome />
     <!-- Match review Component -->
     <!-- Photos Component -->
     <!-- Court review Component -->
@@ -16,4 +16,6 @@
 
 <script setup>
   import Home from '@/components/home/Home.vue'
+  import Slider from'@/components/home/Slider.vue'
+  import Welcome from '@/components/home/Welcome'
 </script>

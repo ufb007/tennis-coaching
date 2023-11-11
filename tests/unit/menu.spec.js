@@ -1,14 +1,22 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import Menu from '@/components/header/Menu'
 
-// get reactive array from menu
-// check if is array
-// check array contents are correct
-// check links are correct
-// check rendered in vue DOM element
+jest.mock('vue-router', () => ({
+    useRoute: jest.fn(() => ({ name: 'Home' }))
+}))
 
 describe('Display menu and router links', () => {
-    const wrapper = mount(Menu)
+    const wrapper = shallowMount(Menu, {
+        global: {
+            provide: {
+                'SvgIcon': 'SvgIcon'
+            },
+            stubs: {
+                RouterLink: RouterLinkStub
+            }
+        }
+    })
+
     it('Check menu is array', () => {
         expect(Array.isArray(wrapper.vm.menu)).toBeTruthy()
     })
