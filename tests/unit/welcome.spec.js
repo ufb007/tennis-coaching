@@ -1,14 +1,21 @@
 import { shallowMount } from "@vue/test-utils"
 import Welcome from "@/components/home/Welcome"
+import store from "@/store"
 
 describe('Test display text', () => {
+    const wrapper = shallowMount(Welcome, {
+        global: {
+            plugins: [store]
+        }
+    })
+
+    const { title, subtitle } = store.getters.getWelcome;
+
     it('Show welcome text', () => {
-        const wrapper = shallowMount(Welcome)
-        expect(wrapper.find('.box h2').text()).toContain('Welcome')
+        expect(wrapper.find('.box h2').text()).toContain(title)
     })
 
     it('Show subtext h4', () => {
-        const wrapper = shallowMount(Welcome)
-        expect(wrapper.find('.box h4').text()).toContain('To Our Tennis Club')
+        expect(wrapper.find('.box h4').text()).toContain(subtitle)
     })
 })

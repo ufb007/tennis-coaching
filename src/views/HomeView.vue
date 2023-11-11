@@ -3,7 +3,7 @@
     <!-- Weather Forecast Component -->
     <Slider />
     <Welcome />
-    <!-- Match review Component -->
+    <MatchReviews />
     <!-- Photos Component -->
     <!-- Court review Component -->
     <!-- Coaching tips Component -->
@@ -18,4 +18,5 @@
   import Home from '@/components/home/Home.vue'
   import Slider from'@/components/home/Slider.vue'
   import Welcome from '@/components/home/Welcome'
+  import MatchReviews from '@/components/home/MatchReviews.vue';
 </script>

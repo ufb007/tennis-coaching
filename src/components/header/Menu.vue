@@ -9,21 +9,16 @@
 </template>
 
 <script setup>
-    import { reactive } from 'vue';
     import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-    import { inject } from 'vue';
+    import { inject, computed } from 'vue';
     import { useRoute } from 'vue-router';
+    import { useStore } from 'vuex';
 
     const SvgIcon = inject('SvgIcon');
     const route = useRoute()
-    const menu = reactive([
-        { name: 'Home', link: '/' },
-        { name: 'Pages', link: '/pages' },
-        { name: 'Membership', link: '/membership' },
-        { name: 'Lessons', link: '/lessons' },
-        { name: 'News', link: '/news' },
-        { name: 'Contact', link: '/contact' }
-    ])
+    const store = useStore()
+
+    const menu = computed(() => store.getters.getMenu)
 </script>
 
 <style scoped>

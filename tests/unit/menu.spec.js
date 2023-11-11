@@ -1,5 +1,6 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import Menu from '@/components/header/Menu'
+import store from '@/store'
 
 jest.mock('vue-router', () => ({
     useRoute: jest.fn(() => ({ name: 'Home' }))
@@ -8,6 +9,7 @@ jest.mock('vue-router', () => ({
 describe('Display menu and router links', () => {
     const wrapper = shallowMount(Menu, {
         global: {
+            plugins: [store],
             provide: {
                 'SvgIcon': 'SvgIcon'
             },
