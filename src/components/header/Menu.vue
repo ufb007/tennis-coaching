@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul class="hidden md:flex">
-            <li class="ml-5 text-xs font-thin" :key="index" v-for="(item, index) in menu">
-                <router-link :class="route.path === item.link ? 'text-black font-normal' : 'text-primary-gray'" :to="item.link">
+            <li class="ml-5 text-xs" :key="index" v-for="(item, index) in menu">
+                <router-link :class="route.path === item.link ? 'text-black' : 'text-gray-400'" :to="item.link">
                     {{ item.name.toUpperCase() }}
                     <svg-icon class="w-[10px] h-[10px] ml-2" :fa-icon="faChevronDown" />
                 </router-link>
@@ -36,7 +36,7 @@
 
 <style scoped>
     ul li a {
-        @apply flex justify-center items-center hover:text-black hover:font-normal duration-200
+        @apply flex justify-center items-center hover:text-black duration-500
     }
     .burger-menu {
         @apply w-[30px] h-[20px] md:hidden flex flex-col justify-between;
