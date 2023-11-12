@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 
-// TODO State data will be requested from an API request coming from a database
+// TODO State data will be populated from an API request coming from a database
+// Maybe using GraphQL or Rest
 export default createStore({
   state: {
     menu: [
@@ -23,22 +24,22 @@ export default createStore({
           list: [
             {
               date: '2024-05-02 13:00',
-              competition: 'WTA Baku Cup',
+              venue: 'WTA Baku Cup',
               competing: ['Linda Carter', 'Lisa Brooks']
             },
             {
               date: '2024-04-30 12:00',
-              competition: 'Australian Open',
+              venue: 'Australian Open',
               competing: ['Steven Ward', 'Paul Diaz']
             },
             {
               date: '2024-04-28 12:00',
-              competition: 'Astana Challenger (hard)',
+              venue: 'Astana Challenger (hard)',
               competing: ['Mary Wilson', 'Helen Price']
             },
             {
               date: '2024-04-28 12:00',
-              competition: 'Astana Challenger (hard)',
+              venue: 'Astana Challenger (hard)',
               competing: ['Mary Wilson', 'Helen Price']
             }
           ]

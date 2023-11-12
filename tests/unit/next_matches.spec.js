@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import MatchReviews from '@/components/home/MatchReviews';
+import NextMatches from '@/components/matches/NextMatches';
 import store from '@/store'
 
 // Check if array on Next Matches
@@ -9,7 +9,7 @@ import store from '@/store'
 // Test getTime method
 
 describe('Testing Match reviews component', () => {
-    const wrapper = mount(MatchReviews, {
+    const wrapper = mount(NextMatches, {
         global: {
             plugins: [store]
         }
