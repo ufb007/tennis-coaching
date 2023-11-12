@@ -27,17 +27,17 @@ export default createStore({
               competing: ['Linda Carter', 'Lisa Brooks']
             },
             {
-              date: '2024-30-04 12:00',
+              date: '2024-04-30 12:00',
               competition: 'Australian Open',
               competing: ['Steven Ward', 'Paul Diaz']
             },
             {
-              date: '2024-28-04 12:00',
+              date: '2024-04-28 12:00',
               competition: 'Astana Challenger (hard)',
               competing: ['Mary Wilson', 'Helen Price']
             },
             {
-              date: '2024-28-04 12:00',
+              date: '2024-04-28 12:00',
               competition: 'Astana Challenger (hard)',
               competing: ['Mary Wilson', 'Helen Price']
             }
@@ -52,7 +52,8 @@ export default createStore({
   getters: {
     getMenu: (state) => state.menu,
     getWelcome: (state) => state.home.welcome,
-    getMatchReviews: (state) => state.match_reviews,
+    getNextMatchReviews: (state) => state.home.match_reviews.next,
+    getLatestMatchReviews: (state) => state.home.match_reviews.latest,
   },
   mutations: {
   },

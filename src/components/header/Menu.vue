@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-    import { faChevronDown, faBars } from '@fortawesome/free-solid-svg-icons'
+    import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
     import { inject, computed, h } from 'vue';
     import { useRoute } from 'vue-router';
     import { useStore } from 'vuex';

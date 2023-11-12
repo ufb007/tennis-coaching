@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center mt-20">
+    <div class="flex justify-center mt-20 mb-20">
         <div class="boxWrapper">
             <div class="box bg-primary text-white text-center py-20 mx-10 px-10 md:w-1/2">
                 <h2 class="text-[45px] font-semibold">{{ title }}</h2>
