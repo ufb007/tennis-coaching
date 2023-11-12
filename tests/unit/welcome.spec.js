@@ -1,9 +1,9 @@
-import { shallowMount } from "@vue/test-utils"
+import { mount } from "@vue/test-utils"
 import Welcome from "@/components/home/Welcome"
 import store from "@/store"
 
 describe('Test display text', () => {
-    const wrapper = shallowMount(Welcome, {
+    const wrapper = mount(Welcome, {
         global: {
             plugins: [store]
         }

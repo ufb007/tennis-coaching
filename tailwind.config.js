@@ -17,6 +17,9 @@ module.exports = {
         'roboto-condensed': ['Roboto Condensed', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif']
       },
+      width: {
+        'page-width': '1170px'
+      }
     },
   },
   plugins: [],

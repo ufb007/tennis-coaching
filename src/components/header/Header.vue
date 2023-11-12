@@ -1,15 +1,15 @@
 <template>
     <header>
-        <nav class="top">
-            <div class="adjustWidth">
+        <nav class="top hidden md:flex justify-center px-5">
+            <div class="w-page-width">
                 <ul class="text-white text-xs flex justify-end">
                     <li><svg-icon :fa-icon="faPen" />Register</li>
                     <li><svg-icon :fa-icon="faUser" />Login</li>
                 </ul>
             </div>
         </nav>
-        <nav class="bottom py-10">
-            <div class="adjustWidth flex justify-between items-center">
+        <nav class="bottom py-5 px-5 md:py-10 flex justify-center">
+            <div class="w-page-width flex justify-between items-center">
                 <Logo />
                 <Menu />
             </div>
@@ -27,13 +27,6 @@
 </script>
 
 <style scoped>
-    nav {
-        @apply flex justify-center;
-    }
-    nav div.adjustWidth {
-        @apply w-[1170px];
-    }
-
     nav.top {
         @apply bg-primary py-[15px];
     }
