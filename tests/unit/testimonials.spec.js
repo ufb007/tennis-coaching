@@ -18,8 +18,6 @@ describe('Testing testimonials', ()=> {
         }
     })
 
-    const scrollTestimonials = jest.spyOn(wrapper.vm, 'scrollTestimonials');
-
     it('Test function for scroll', ()=> {
         watch(wrapper.vm.testimonialsList, () => {
             expect(wrapper.vm.testimonialsList.length).toEqual(3)
@@ -27,6 +25,8 @@ describe('Testing testimonials', ()=> {
     })
 
     it('Button click events for scrolling testimonials', async ()=> {
+        const scrollTestimonials = jest.spyOn(wrapper.vm, 'scrollTestimonials');
+        
         await wrapper.find('button').trigger('click')
         expect(wrapper.vm.scrollTestimonials).toHaveBeenCalled()
     })

@@ -1,7 +1,10 @@
 <template>
     <div class="flex justify-center my-20">
         <div class="tesimonials w-[770px] bg-primary-green text-white text-center overflow-hidden">
-            <h2 class="py-10 font-bold text-4xl">{{ testimonials.title }}</h2>
+            <h2 class="py-10 font-bold text-4xl flex flex-col items-center">
+                <p class="pb-5">{{ testimonials.title }}</p>
+                <svg-icon class="w-[30px] h-[30px] opacity-50" :fa-icon="faQuoteRight" />
+            </h2>
             <div class="carousel-wrapper flex w-full items-end relative justify-center gap-1 pb-5 h-[200px]">
                 <ul class="carousel absolute top-0 left-[0px] flex">
                     <li :key="index" v-for="(item, index) in testimonialsList" class="w-[770px] px-10 font-thin leading-6 text-[15px]">
@@ -9,8 +12,8 @@
                     </li>
                 </ul>
 
-                <button class="bg-white p-7 group" @click="scrollTestimonials('prev')"><svg-icon class="text-primary-green w-[12px] h-[12px] group-hover:text-[#1a3150] duration-500" :fa-icon="faChevronLeft" /></button>
-                <button class="bg-white p-7 group" @click="scrollTestimonials('next')"><svg-icon class="text-primary-green w-[12px] h-[12px] group-hover:text-[#1a3150] duration-500" :fa-icon="faChevronRight" /></button>
+                <button class="group" @click="scrollTestimonials('prev')"><svg-icon class="group-hover:text-[#1a3150]" :fa-icon="faChevronLeft" /></button>
+                <button class="group" @click="scrollTestimonials('next')"><svg-icon class="group-hover:text-[#1a3150]" :fa-icon="faChevronRight" /></button>
             </div>
         </div>
     </div>
@@ -19,7 +22,7 @@
 <script setup>
     import { ref, computed, onMounted, reactive, inject } from 'vue';
     import { useStore } from 'vuex';
-    import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+    import { faChevronLeft, faChevronRight, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 
     const position = ref(false)
     const store = useStore()
@@ -43,3 +46,13 @@
         createTestimonials()
     })
 </script>
+
+<style scoped>
+    button {
+        @apply bg-white p-7;
+    }
+
+    button svg {
+        @apply text-primary-green w-[12px] h-[12px] duration-500;
+    }
+</style>

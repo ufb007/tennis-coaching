@@ -19,8 +19,6 @@ describe('Display menu and router links', () => {
         }
     })
 
-    const sideMenuOpen = jest.spyOn(wrapper.vm, 'sideMenuOpen');
-
     it('Check menu is array', () => {
         expect(Array.isArray(wrapper.vm.menu)).toBeTruthy()
     })
@@ -38,6 +36,8 @@ describe('Display menu and router links', () => {
     })
 
     it('Click trigger of burger menu bar', async () => {
+        const sideMenuOpen = jest.spyOn(wrapper.vm, 'sideMenuOpen');
+        
         await wrapper.find('.burger-menu').trigger('click')
         expect(sideMenuOpen).toHaveBeenCalled()
     })
