@@ -1,4 +1,4 @@
-# tennis-coaching
+# Tennis Coaching App
 
 ## Project setup
 ```
