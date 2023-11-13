@@ -5,17 +5,17 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run development environment server
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Open on browser
 ```
-npm run build
+http://localhost:8080
 ```
 
-### Run your unit tests
+### Run tests
 ```
 npm run test:unit
 ```
