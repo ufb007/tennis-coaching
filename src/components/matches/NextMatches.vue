@@ -20,7 +20,7 @@
 
 <script setup>
     import { computed } from 'vue';
-    import { useStore, mapGetters } from 'vuex';
+    import { useStore } from 'vuex';
     import { getDate, getTime } from '@/models/DateFormatter';
 
     const store = useStore()
