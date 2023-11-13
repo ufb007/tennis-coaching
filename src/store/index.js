@@ -4,6 +4,9 @@ import homeModule from './modules/HomeModule'
 // TODO State data will be populated from an API request coming from a database
 // Maybe using GraphQL or Rest
 export default createStore({
+  modules: {
+    homeModule,
+  },
   state: {
     menu: [
       { name: 'Home', link: '/' },
@@ -37,12 +40,9 @@ export default createStore({
   },
   mutations: {
     addTestimonial: (state, data) => {
-      return state.testimonials.push(data)
+      return state.testimonials.list.push(data)
     }
   },
   actions: {
-  },
-  modules: {
-    homeModule,
-  },
+  }
 })
