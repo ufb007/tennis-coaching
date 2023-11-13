@@ -4,12 +4,11 @@
     <Slider />
     <Welcome />
     <MatchReviews />
-    <Testimonials />
     <!-- Photos Component -->
     <!-- Court review Component -->
     <!-- Coaching tips Component -->
     <!-- Club Coaches Component -->
-    <!-- Testimonials Component -->
+    <Testimonials />
     <!-- Payment Membership Fees Component -->
   </div>
 </template>
