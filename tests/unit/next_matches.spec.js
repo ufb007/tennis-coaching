@@ -2,12 +2,6 @@ import { mount } from "@vue/test-utils";
 import NextMatches from '@/components/matches/NextMatches';
 import store from '@/store'
 
-// Check if array on Next Matches
-// Check date format
-// Check name of title in div
-// Test getDateTime method
-// Test getTime method
-
 describe('Testing Match reviews component', () => {
     const wrapper = mount(NextMatches, {
         global: {
@@ -20,7 +14,7 @@ describe('Testing Match reviews component', () => {
     })
 
     it('Check date format of 2024-05-02 13:00', ()=> {
-        expect(wrapper.vm.getDateTime('2024-10-02 13:00')).toEqual({day: '02', month: 'Oct', year: '2024'})
+        expect(wrapper.vm.getDate('2024-10-02 13:00')).toEqual({day: '02', month: 'Oct', year: '2024'})
     })
 
     it('Check and seperate time with intl', ()=> {
