@@ -19,6 +19,15 @@ module.exports = {
       },
       width: {
         'page-width': '1170px'
+      },
+      animation: {
+        moveLeft: 'moveLeft 1s forwards'
+      },
+      keyframes: {
+        moveLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(770px)' }
+        }
       }
     },
   },
