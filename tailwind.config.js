@@ -21,12 +21,27 @@ module.exports = {
         'page-width': '1170px'
       },
       animation: {
-        moveLeft: 'moveLeft 1s forwards'
+        'moveLeft-770': 'moveLeft-770 1s forwards',
+        'moveRight-770': 'moveRight-770 1s forwards',
+        'moveLeft-400': 'moveLeft-400 1s forwards',
+        'moveRight-400': 'moveRight-400 1s forwards',
       },
       keyframes: {
-        moveLeft: {
+        'moveLeft-770': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-770px)' }
+        },
+        'moveRight-770': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(770px)' }
+        },
+        'moveLeft-400': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-400px)' }
+        },
+        'moveRight-400': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(400px)' }
         }
       }
     },

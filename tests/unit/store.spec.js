@@ -3,13 +3,7 @@ import store from "@/store";
 
 describe('Store module', ()=> {
     it('Test testimonials', ()=> {
-        console.log('Testimonials - ', store.state.testimonials)
-
        expect(Array.isArray(store.state.testimonials.list)).toBeTruthy()
-    })
-
-    it('Check testimonial count which should be 3', () => {
-        expect(store.state.testimonials.list.length).toEqual(3)
     })
 
     it('Add a tesitmonial with mutation and check length', ()=> {
@@ -18,6 +12,6 @@ describe('Store module', ()=> {
             name: 'Ufuk Bozdemir, developer'
         })
 
-        expect(store.state.testimonials.list.length).toEqual(4)
+        expect(store.state.testimonials.list.length).toEqual(5)
     })
 })

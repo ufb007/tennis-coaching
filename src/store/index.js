@@ -30,10 +30,6 @@ export default createStore({
         {
           message: 'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. PELLENTESQUE VULPUTATE SED LOREM A CONGUE. DONEC CONSEQUAT ET SEM IN PORTA.',
           name: 'John Snow, CEO'
-        },
-        {
-          message: 'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. PELLENTESQUE VULPUTATE SED LOREM A CONGUE. DONEC CONSEQUAT ET SEM IN PORTA.',
-          name: 'Mehmet Bozdemir, Developer'
         }
       ]
     },
