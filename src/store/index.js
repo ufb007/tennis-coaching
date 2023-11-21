@@ -30,6 +30,10 @@ export default createStore({
         {
           message: 'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. PELLENTESQUE VULPUTATE SED LOREM A CONGUE. DONEC CONSEQUAT ET SEM IN PORTA.',
           name: 'John Snow, CEO'
+        },
+        {
+          message: 'EXCELLENT PROJECT THAT HELPS DISCOVERING YOUNG TALENTS AND KEEP US HEALTHY. PROFESSIONAL COACHES AND STAFF ARE DOING GREAT JOB!',
+          name: 'Mehmet Bozdemir, Senior Developer'
         }
       ]
     },

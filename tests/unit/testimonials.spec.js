@@ -20,7 +20,7 @@ describe('Testing testimonials', ()=> {
 
     it('Test function for scroll', ()=> {
         watch(wrapper.vm.testimonialsList, () => {
-            expect(wrapper.vm.testimonialsList.length).toEqual(3)
+            expect(wrapper.vm.testimonialsList.length).toEqual(4)
         })
     })
 

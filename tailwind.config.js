@@ -21,10 +21,10 @@ module.exports = {
         'page-width': '1170px'
       },
       animation: {
-        'moveLeft-770': 'moveLeft-770 1s forwards',
-        'moveRight-770': 'moveRight-770 1s forwards',
-        'moveLeft-400': 'moveLeft-400 1s forwards',
-        'moveRight-400': 'moveRight-400 1s forwards',
+        'moveLeft-770': 'moveLeft-770 .5s forwards',
+        'moveRight-770': 'moveRight-770 .5s forwards',
+        'moveLeft-400': 'moveLeft-400 .3s forwards',
+        'moveRight-400': 'moveRight-400 .3s forwards',
       },
       keyframes: {
         'moveLeft-770': {

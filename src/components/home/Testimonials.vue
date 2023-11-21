@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center my-20">
+    <div class="flex justify-center my-20 bg-[url('~@/assets/home/testimony_bg.jpg')] py-20">
         <div class="tesimonials w-[400px] md:w-[770px] bg-primary-green text-white text-center overflow-hidden">
             <h2 class="py-10 font-bold text-4xl flex flex-col items-center">
                 <p class="pb-5">{{ testimonials.title }}</p>
@@ -42,12 +42,14 @@
     let scrollTimer
 
     const createTestimonials = () => {
-        for (let i = 0; i < testimonials.value.list.length; i++) {
+        testimonials.value.list.map((testimony, index) => {
             testimonialsList.push({
-                ...testimonials.value.list[i],
-                position: (positions[i]),
+                ...testimony,
+                position: (positions[index] !== undefined ? positions[index] : positions[2])
             })
-        }
+        })
+
+        //console.log(testimonials.value.list.findLast((element) => element))
     }
 
     const handleResize = () => {
@@ -64,7 +66,13 @@
         const element = el.srcElement
         const offset = element.offsetLeft
 
-        element.classList.remove('animate-moveLeft-770', 'animate-moveLeft-400', 'animate-moveRight-770', 'duration-500', 'animate-moveRight-400', 'transition-all')
+        element.classList.remove(
+            'animate-moveLeft-770', 
+            'animate-moveLeft-400', 
+            'animate-moveRight-770',
+            'animate-moveRight-400', 
+            'transition-all'
+        )
 
         if (element.id === 'testimonial-1') {
             if (scrollDirection.value === 'next') {
@@ -76,7 +84,7 @@
             }
 
             testimonialsList.map((value, index) => {
-                value.position = positions[index]
+                value.position = positions[index] !== undefined ? positions[index] : positions[2]
             })
         }
     }
@@ -88,8 +96,8 @@
 
         scrollDirection.value = location
 
-        const moveLeft = (currentWidth.value === 770) ? ` animate-moveLeft-770 duration-500 ` : ` animate-moveLeft-400 `
-        const moveRight = (currentWidth.value === 770) ? ` animate-moveRight-770 duration-500 ` : ` animate-moveRight-400 `
+        const moveLeft = (currentWidth.value === 770) ? ` animate-moveLeft-770 ` : ` animate-moveLeft-400 `
+        const moveRight = (currentWidth.value === 770) ? ` animate-moveRight-770 ` : ` animate-moveRight-400 `
         const transition_duration = 'transition-all'
 
         if (location === 'next') {
