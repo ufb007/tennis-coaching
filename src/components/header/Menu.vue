@@ -8,7 +8,7 @@
                 </router-link>
             </li>
         </ul>
-        <burger-menu @click="sideMenuOpen()"></burger-menu>
+        <burger-menu @click="() => sideMenuActive = true"></burger-menu>
     </div>
 </template>
 
@@ -18,7 +18,8 @@
     import { useRoute } from 'vue-router';
     import { useStore } from 'vuex';
 
-    const SvgIcon = inject('SvgIcon');
+    const SvgIcon = inject('SvgIcon')
+    const sideMenuActive = inject('sideMenuActive')
     const route = useRoute()
     const store = useStore()
 
@@ -29,9 +30,6 @@
     ]);
 
     const menu = computed(() => store.getters.getMenu)
-    const sideMenuOpen = () => {
-        console.log('open this please')
-    }
 </script>
 
 <style scoped>

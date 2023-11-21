@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div :class="`home overflow-y-hidden`">
     <!-- Weather Forecast Component -->
     <Slider />
     <Welcome />
@@ -18,4 +18,8 @@
   import Welcome from '@/components/home/Welcome.vue';
   import MatchReviews from '@/components/home/MatchReviews.vue';
   import Testimonials from '@/components/home/Testimonials.vue';
+
+  import { inject } from 'vue';
+
+  const sideMenuActive = inject('sideMenuActive')
 </script>

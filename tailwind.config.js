@@ -25,6 +25,8 @@ module.exports = {
         'moveRight-770': 'moveRight-770 .5s forwards',
         'moveLeft-400': 'moveLeft-400 .3s forwards',
         'moveRight-400': 'moveRight-400 .3s forwards',
+        'side-menu-open': 'sideMenuOpen .3s forwards',
+        'side-menu-close': 'sideMenuClose .3s forwards',
       },
       keyframes: {
         'moveLeft-770': {
@@ -42,6 +44,14 @@ module.exports = {
         'moveRight-400': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(400px)' }
+        },
+        sideMenuOpen: {
+          '0%': { left: '-75%' },
+          '100%': { left: '0' }
+        },
+        sideMenuClose: {
+          '0%': { left: '0' },
+          '100%': { left: '-75%' }
         }
       }
     },
