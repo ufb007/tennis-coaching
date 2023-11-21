@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-    import { ref, computed, onMounted, reactive, inject, watch } from 'vue'
+    import { ref, computed, onMounted, reactive, inject, watch, onUnmounted } from 'vue'
     import { useStore } from 'vuex'
     import { faChevronLeft, faChevronRight, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -99,11 +99,11 @@
         const transition_duration = 'transition-all'
 
         if (location === 'next') {
-            testimonialsList[1].position += moveLeft + transition_duration
-            testimonialsList[2].position += moveLeft + transition_duration
+            testimonialsList[1].position = positions[1] + moveLeft + transition_duration
+            testimonialsList[2].position = positions[2] + moveLeft + transition_duration
         } else {
-            testimonialsList[0].position += moveRight + transition_duration
-            testimonialsList[1].position += moveRight + transition_duration
+            testimonialsList[0].position = positions[0] + moveRight + transition_duration
+            testimonialsList[1].position = positions[1] + moveRight + transition_duration
         }
     }
 
@@ -122,6 +122,10 @@
         scrollTimer = setInterval(() => {
             scrollTestimonials('next')
         }, 5000)
+    })
+
+    onUnmounted(() => {
+        //Possibly add something here due to animationend not being called after router path changes
     })
 </script>
 

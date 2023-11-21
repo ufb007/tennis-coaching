@@ -4,7 +4,7 @@
             <li class="ml-5 text-xs" :key="index" v-for="(item, index) in menu">
                 <router-link :class="route.path === item.link ? 'text-black' : 'text-gray-400'" :to="item.link">
                     {{ item.name.toUpperCase() }}
-                    <svg-icon class="w-[10px] h-[10px] ml-2" :fa-icon="faChevronDown" />
+                    <!--<svg-icon class="w-[10px] h-[10px] ml-2" :fa-icon="faChevronDown" />-->
                 </router-link>
             </li>
         </ul>
