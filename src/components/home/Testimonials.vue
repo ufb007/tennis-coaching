@@ -48,8 +48,6 @@
                 position: (positions[index] !== undefined ? positions[index] : positions[2])
             })
         })
-
-        //console.log(testimonials.value.list.findLast((element) => element))
     }
 
     const handleResize = () => {
