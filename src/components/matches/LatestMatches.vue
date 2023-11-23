@@ -23,14 +23,15 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { getDate, getTime } from '@/models/DateFormatter';
     import { computed } from 'vue';
     import { useStore } from 'vuex';
+    import { ReviewLatestType } from '@/types/MatchReviewType';
 
     const store = useStore()
 
-    const latest = computed(()=> store.getters.getLatestMatchReviews)
+    const latest = computed<ReviewLatestType>(()=> store.getters.getLatestMatchReviews)
 
     const { day, month } = getDate(latest.value.match.date)
 </script>

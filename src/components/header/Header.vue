@@ -17,7 +17,7 @@
     </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { faUser, faPen } from '@fortawesome/free-solid-svg-icons'
     import { inject } from 'vue'
     import Logo from '@/components/header/Logo.vue'

@@ -1,7 +1,7 @@
 export type ListType = {
     message: string,
     name: string,
-    position?: string | undefined
+    position?: string
 }
 
 export type TestimonialsType = {

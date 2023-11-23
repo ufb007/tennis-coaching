@@ -1,4 +1,5 @@
 import { Module } from "vuex"
+import { ReviewNextType, ReviewLatestType } from "@/types/MatchReviewType"
 
 type HomeModuleType = {
     welcome: {
@@ -7,27 +8,8 @@ type HomeModuleType = {
         description: string
     },
     match_reviews: {
-        next: {
-            title: string,
-            list: {
-                date: string,
-                venue: string,
-                competing: [string, string]
-            }[]
-        },
-        latest: {
-            title: string,
-            description: string,
-            match: {
-                date: string,
-                venue: string,
-                score: string,
-                competing: {
-                    name: string,
-                    img: string 
-                }[]
-            }
-        }
+        next: ReviewNextType,
+        latest: ReviewLatestType
     }
 }
 
