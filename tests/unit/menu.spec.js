@@ -7,14 +7,16 @@ jest.mock('vue-router', () => ({
 }))
 
 describe('Display menu and router links', () => {
+
     const wrapper = mount(Menu, {
         global: {
             plugins: [store],
             provide: {
-                'SvgIcon': 'SvgIcon'
+                'SvgIcon': 'SvgIcon',
+                'sideMenuActive': 'sideMenuActive'
             },
             stubs: {
-                RouterLink: RouterLinkStub
+                RouterLinkStub: RouterLinkStub
             }
         }
     })
@@ -35,10 +37,9 @@ describe('Display menu and router links', () => {
         expect(wrapper.find('ul').html()).toContain('HOME' && 'PAGES' && 'MEMBERSHIP' && 'LESSONS' && 'NEWS' && 'CONTACT')
     })
 
-    it('Click trigger of burger menu bar', async () => {
-        const sideMenuOpen = jest.spyOn(wrapper.vm, 'sideMenuOpen');
-        
+    it('Click trigger of burger menu bar', async () => {        
         await wrapper.find('.burger-menu').trigger('click')
-        expect(sideMenuOpen).toHaveBeenCalled()
+        
+        expect(wrapper.vm.sideMenuActive).toEqual(true)
     })
 })
