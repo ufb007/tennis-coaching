@@ -23,25 +23,26 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { ref, computed, onMounted, reactive, inject, watch, onUnmounted } from 'vue'
     import { useStore } from 'vuex'
     import { faChevronLeft, faChevronRight, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+    import { TestimonialsType, ListType } from '@/types/TestimonialsType';
 
     let currentWidth = ref()
     const store = useStore()
-    const testimonials = computed(()=> store.getters.getTestimonials)
-    let testimonialsList = reactive([])
+    const testimonials = computed<TestimonialsType>(()=> store.getters.getTestimonials)
+    let testimonialsList = reactive<ListType[]>([])
     const SvgIcon = inject('SvgIcon')
     const positions = [
         `left-[-400px] md:left-[-770px]`, 
         'left-0', 
         `left-[400px] md:left-[770px]`
     ]
-    let scrollDirection = ref('next')
-    let scrollTimer
+    let scrollDirection = ref<string>('next')
+    let scrollTimer: any
 
-    const createTestimonials = () => {
+    const createTestimonials = (): void => {
         testimonials.value.list.map((testimony, index) => {
             testimonialsList.push({
                 ...testimony,
