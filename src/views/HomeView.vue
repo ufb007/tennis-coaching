@@ -21,5 +21,5 @@
 
   import { inject } from 'vue';
 
-  const sideMenuActive = inject('sideMenuActive')
+  const sideMenuActive = inject<boolean>('sideMenuActive')
 </script>

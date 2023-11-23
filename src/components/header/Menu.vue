@@ -17,10 +17,10 @@
     import { inject, computed, h } from 'vue';
     import { useRoute } from 'vue-router';
     import { useStore } from 'vuex';
-    import MenuType from '@/types/MenuType';
+    import { MenuType } from '@/types/MenuType';
 
     const SvgIcon = inject('SvgIcon')
-    const sideMenuActive = inject('sideMenuActive')
+    const sideMenuActive = inject<boolean>('sideMenuActive')
     const route = useRoute()
     const store = useStore()
 

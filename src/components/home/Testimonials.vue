@@ -29,7 +29,7 @@
     import { faChevronLeft, faChevronRight, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
     import { TestimonialsType, ListType } from '@/types/TestimonialsType';
 
-    let currentWidth = ref()
+    let currentWidth = ref<number>()
     const store = useStore()
     const testimonials = computed<TestimonialsType>(()=> store.getters.getTestimonials)
     let testimonialsList = reactive<ListType[]>([])
@@ -40,7 +40,7 @@
         `left-[400px] md:left-[770px]`
     ]
     let scrollDirection = ref<string>('next')
-    let scrollTimer: any
+    let scrollTimer: number
 
     const createTestimonials = (): void => {
         testimonials.value.list.map((testimony, index) => {
@@ -51,7 +51,7 @@
         })
     }
 
-    const handleResize = () => {
+    const handleResize = (): void => {
         const width = window.innerWidth
 
         currentWidth.value = 770;
@@ -61,7 +61,7 @@
         }
     }
 
-    function scrollAnimationEnd(this: HTMLLIElement) {
+    function scrollAnimationEnd(this: HTMLLIElement): void {
         this.classList.remove(
             'animate-moveLeft-770', 
             'animate-moveLeft-400', 
@@ -85,7 +85,7 @@
         }
     }
 
-    const scrollTestimonials = (location: string, clicked = false): void => {
+    const scrollTestimonials = (location: string, clicked: boolean = false): void => {
         if (clicked) {
             clearInterval(scrollTimer)
         }

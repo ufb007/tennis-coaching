@@ -1,4 +1,4 @@
-import MenuType from "./MenuType"
+import { MenuType } from "./MenuType"
 import { TestimonialsType } from "./TestimonialsType"
 
 type StoreType = {
