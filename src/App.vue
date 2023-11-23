@@ -16,7 +16,6 @@
 
   provide('SvgIcon', SvgIcon)
   provide('sideMenuActive', sideMenuActivate)
-  
 </script>
 
 <style>
