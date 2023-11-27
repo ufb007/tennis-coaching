@@ -1,9 +1,9 @@
 <template>
     <div>
         <ul class="hidden md:flex">
-            <li class="ml-5 text-xs" :key="index" v-for="(item, index) in menu">
-                <router-link :class="route.path === item.link ? 'text-black' : 'text-gray-400'" :to="item.link">
-                    {{ item.name.toUpperCase() }}
+            <li class="ml-5 text-xs" :key="index" v-for="({ name, link }, index) in menu">
+                <router-link :class="route.path === link ? 'text-black' : 'text-gray-400'" :to="link">
+                    {{ name.toUpperCase() }}
                     <!--<svg-icon class="w-[10px] h-[10px] ml-2" :fa-icon="faChevronDown" />-->
                 </router-link>
             </li>
@@ -12,14 +12,15 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
     import { inject, computed, h } from 'vue';
     import { useRoute } from 'vue-router';
     import { useStore } from 'vuex';
+    import { MenuType } from '@/types/MenuType';
 
     const SvgIcon = inject('SvgIcon')
-    const sideMenuActive = inject('sideMenuActive')
+    const sideMenuActive = inject<boolean>('sideMenuActive')
     const route = useRoute()
     const store = useStore()
 
@@ -29,7 +30,7 @@
         h('div', { class: 'w-full h-[2px] bg-primary' })
     ]);
 
-    const menu = computed(() => store.getters.getMenu)
+    const menu = computed<MenuType[]>(() => store.getters.getMenu)
 </script>
 
 <style scoped>

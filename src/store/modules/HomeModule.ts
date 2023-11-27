@@ -1,4 +1,16 @@
-export default {
+import { Module } from "vuex"
+import { ReviewNextType, ReviewLatestType } from "@/types/MatchReviewType"
+import { WelcomeType } from "@/types/WelcomeType"
+
+type HomeModuleType = {
+    welcome: WelcomeType,
+    match_reviews: {
+        next: ReviewNextType,
+        latest: ReviewLatestType
+    }
+}
+
+const homeModule: Module<HomeModuleType, any> = {
     state: {
         welcome: {
             title: 'Welcome',
@@ -35,12 +47,12 @@ export default {
                 title: 'Last Match Review',
                 description: 'WE ARE VERY EXCITED TO GO OVER THIS EXCEPTIONAL TOURNAMENT THAT LITERALLY LEFT THE PLAYERS AND THE CROWD BREATHLESS!',
                 match: {
-                date: '2024-05-02 13:00',
-                venue: 'WTA Baku Cup',
-                score: '3-0',
-                competing: [
-                    { name: 'Linda Carter', img: '/images/matches/player-4-420x420.jpg' }, 
-                    { name: 'Lisa Brooks', img: '/images/matches/image-21-420x420.jpg' }
+                    date: '2024-05-02 13:00',
+                    venue: 'WTA Baku Cup',
+                    score: '3-0',
+                    competing: [
+                        { name: 'Linda Carter', img: '/images/matches/player-4-420x420.jpg' }, 
+                        { name: 'Lisa Brooks', img: '/images/matches/image-21-420x420.jpg' }
                     ]
                 }
             }
@@ -54,3 +66,5 @@ export default {
     mutations: {},
     actions: {}
 }
+
+export default homeModule

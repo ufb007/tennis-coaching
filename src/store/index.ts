@@ -1,9 +1,10 @@
 import { createStore } from 'vuex'
-import homeModule from './modules/HomeModule'
+import homeModule from '@/store/modules/HomeModule'
+import StoreType from '@/types/StoreType'
 
 // TODO State data will be populated from an API request coming from a database
 // Maybe using GraphQL or Rest
-export default createStore({
+export default createStore<StoreType>({
   modules: {
     homeModule,
   },

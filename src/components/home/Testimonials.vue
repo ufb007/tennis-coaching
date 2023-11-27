@@ -23,25 +23,26 @@
     </div>
 </template>
 
-<script setup>
-    import { ref, computed, onMounted, reactive, inject, watch, onUnmounted } from 'vue'
+<script setup lang="ts">
+    import { ref, computed, onMounted, reactive, inject } from 'vue'
     import { useStore } from 'vuex'
     import { faChevronLeft, faChevronRight, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+    import { TestimonialsType, ListType } from '@/types/TestimonialsType';
 
-    let currentWidth = ref()
+    let currentWidth = ref<number>()
     const store = useStore()
-    const testimonials = computed(()=> store.getters.getTestimonials)
-    let testimonialsList = reactive([])
+    const testimonials = computed<TestimonialsType>(()=> store.getters.getTestimonials)
+    let testimonialsList = reactive<ListType[]>([])
     const SvgIcon = inject('SvgIcon')
     const positions = [
         `left-[-400px] md:left-[-770px]`, 
         'left-0', 
         `left-[400px] md:left-[770px]`
     ]
-    let scrollDirection = ref('next')
-    let scrollTimer
+    let scrollDirection = ref<string>('next')
+    let scrollTimer: number
 
-    const createTestimonials = () => {
+    const createTestimonials = (): void => {
         testimonials.value.list.map((testimony, index) => {
             testimonialsList.push({
                 ...testimony,
@@ -50,7 +51,7 @@
         })
     }
 
-    const handleResize = () => {
+    const handleResize = (): void => {
         const width = window.innerWidth
 
         currentWidth.value = 770;
@@ -60,11 +61,8 @@
         }
     }
 
-    const scrollAnimationEnd = (el) => {
-        const element = el.srcElement
-        const offset = element.offsetLeft
-
-        element.classList.remove(
+    function scrollAnimationEnd(this: HTMLLIElement): void {
+        this.classList.remove(
             'animate-moveLeft-770', 
             'animate-moveLeft-400', 
             'animate-moveRight-770',
@@ -72,12 +70,12 @@
             'transition-all'
         )
 
-        if (element.id === 'testimonial-1') {
+        if (this.id === 'testimonial-1') {
             if (scrollDirection.value === 'next') {
-                const list = testimonialsList.shift()
+                const list = testimonialsList.shift()!
                 testimonialsList.push(list)
             } else {
-                const list = testimonialsList.pop()
+                const list = testimonialsList.pop()!
                 testimonialsList = [list, ...testimonialsList]
             }
 
@@ -87,7 +85,7 @@
         }
     }
 
-    const scrollTestimonials = (location, clicked = false) => {
+    const scrollTestimonials = (location: string, clicked: boolean = false): void => {
         if (clicked) {
             clearInterval(scrollTimer)
         }
@@ -113,19 +111,15 @@
 
         addEventListener('resize', handleResize)
 
-        document.addEventListener("DOMContentLoaded", function(event) { 
+        document.addEventListener("DOMContentLoaded", function(event): void { 
             for (let i = 0; i < 3; i++) {
-                document.getElementById(`testimonial-${i}`).addEventListener('animationend', scrollAnimationEnd)
+                document.getElementById(`testimonial-${i}`)!.addEventListener('animationend', scrollAnimationEnd)
             }
         });
 
         scrollTimer = setInterval(() => {
             scrollTestimonials('next')
         }, 5000)
-    })
-
-    onUnmounted(() => {
-        //Possibly add something here due to animationend not being called after router path changes
     })
 </script>
 

@@ -10,15 +10,14 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { computed } from '@vue/reactivity';
     import { useStore } from 'vuex';
+    import { WelcomeType } from '@/types/WelcomeType';
 
-    const store = useStore()
+    const store = useStore();
 
-    const welcome = computed(() => store.getters.getWelcome)
-    
-    const { title, subtitle, description } = welcome.value
+    const { title, subtitle, description } = computed<WelcomeType>(() => store.getters.getWelcome).value
 </script>
 
 <style scoped>

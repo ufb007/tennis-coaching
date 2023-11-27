@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import Slider from'@/components/home/Slider.vue';
   import Welcome from '@/components/home/Welcome.vue';
   import MatchReviews from '@/components/home/MatchReviews.vue';
@@ -21,5 +21,5 @@
 
   import { inject } from 'vue';
 
-  const sideMenuActive = inject('sideMenuActive')
+  const sideMenuActive = inject<boolean>('sideMenuActive')
 </script>
